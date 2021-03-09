@@ -1,0 +1,697 @@
+Analysis & Synthesis report for CONTROLLER
+Tue Mar 09 10:52:34 2021
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |CONTROLLER|TXSERIAL:U4|estado
+  9. State Machine - |CONTROLLER|PROMEDIO:U3|estado
+ 10. State Machine - |CONTROLLER|PROMEDIO:U3|RXSERIAL:U0|estado
+ 11. State Machine - |CONTROLLER|TXSERIAL:U2|estado
+ 12. State Machine - |CONTROLLER|accel_driver:U1|STATE
+ 13. Registers Removed During Synthesis
+ 14. Removed Registers Triggering Further Register Optimizations
+ 15. General Register Statistics
+ 16. Inverted Register Statistics
+ 17. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 18. Parameter Settings for User Entity Instance: spi_master:U0|clock_div:U_CLOCK_DIV
+ 19. Parameter Settings for Inferred Entity Instance: PROMEDIO:U3|lpm_divide:Div0
+ 20. Port Connectivity Checks: "accel_driver:U1"
+ 21. Port Connectivity Checks: "spi_master:U0"
+ 22. Post-Synthesis Netlist Statistics for Top Partition
+ 23. Elapsed Time Per Partition
+ 24. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Tue Mar 09 10:52:33 2021       ;
+; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                      ; CONTROLLER                                  ;
+; Top-level Entity Name              ; CONTROLLER                                  ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 1,500                                       ;
+;     Total combinational functions  ; 1,406                                       ;
+;     Dedicated logic registers      ; 452                                         ;
+; Total registers                    ; 452                                         ;
+; Total pins                         ; 19                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M50DAF484C7G     ;                    ;
+; Top-level entity name                                            ; CONTROLLER         ; CONTROLLER         ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                  ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                              ; Library ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------------------------------+---------+
+; RXSERIAL.vhd                     ; yes             ; User VHDL File               ; C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/RXSERIAL.vhd              ;         ;
+; TXSERIAL.vhd                     ; yes             ; User VHDL File               ; C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/TXSERIAL.vhd              ;         ;
+; spi_master.vhd                   ; yes             ; User VHDL File               ; C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/spi_master.vhd            ;         ;
+; clock_div.vhd                    ; yes             ; User VHDL File               ; C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/clock_div.vhd             ;         ;
+; accel_driver.vhd                 ; yes             ; User VHDL File               ; C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/accel_driver.vhd          ;         ;
+; CONTROLLER.vhd                   ; yes             ; User VHDL File               ; C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/CONTROLLER.vhd            ;         ;
+; output_files/PROMEDIO.vhd        ; yes             ; User VHDL File               ; C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/output_files/PROMEDIO.vhd ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_divide.tdf                                                     ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/abs_divider.inc                                                    ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sign_div_unsign.inc                                                ;         ;
+; aglobal181.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/aglobal181.inc                                                     ;         ;
+; db/lpm_divide_fbo.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/db/lpm_divide_fbo.tdf     ;         ;
+; db/abs_divider_kbg.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/db/abs_divider_kbg.tdf    ;         ;
+; db/alt_u_div_she.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/db/alt_u_div_she.tdf      ;         ;
+; db/add_sub_t3c.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/db/add_sub_t3c.tdf        ;         ;
+; db/add_sub_u3c.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/db/add_sub_u3c.tdf        ;         ;
+; db/lpm_abs_o99.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/db/lpm_abs_o99.tdf        ;         ;
+; db/lpm_abs_8b9.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/db/lpm_abs_8b9.tdf        ;         ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 1,500     ;
+;                                             ;           ;
+; Total combinational functions               ; 1406      ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 451       ;
+;     -- 3 input functions                    ; 309       ;
+;     -- <=2 input functions                  ; 646       ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 883       ;
+;     -- arithmetic mode                      ; 523       ;
+;                                             ;           ;
+; Total registers                             ; 452       ;
+;     -- Dedicated logic registers            ; 452       ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 19        ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; CLK~input ;
+; Maximum fan-out                             ; 330       ;
+; Total fan-out                               ; 5423      ;
+; Average fan-out                             ; 2.86      ;
++---------------------------------------------+-----------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                   ;
++------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node               ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                  ; Entity Name     ; Library Name ;
++------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------------------------------+-----------------+--------------+
+; |CONTROLLER                              ; 1406 (92)           ; 452 (69)                  ; 0           ; 0          ; 0            ; 0       ; 0         ; 19   ; 0            ; 0          ; |CONTROLLER                                                                                                          ; CONTROLLER      ; work         ;
+;    |PROMEDIO:U3|                         ; 744 (114)           ; 134 (77)                  ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CONTROLLER|PROMEDIO:U3                                                                                              ; PROMEDIO        ; work         ;
+;       |RXSERIAL:U0|                      ; 79 (79)             ; 57 (57)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CONTROLLER|PROMEDIO:U3|RXSERIAL:U0                                                                                  ; RXSERIAL        ; work         ;
+;       |lpm_divide:Div0|                  ; 551 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CONTROLLER|PROMEDIO:U3|lpm_divide:Div0                                                                              ; lpm_divide      ; work         ;
+;          |lpm_divide_fbo:auto_generated| ; 551 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CONTROLLER|PROMEDIO:U3|lpm_divide:Div0|lpm_divide_fbo:auto_generated                                                ; lpm_divide_fbo  ; work         ;
+;             |abs_divider_kbg:divider|    ; 551 (16)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CONTROLLER|PROMEDIO:U3|lpm_divide:Div0|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider                        ; abs_divider_kbg ; work         ;
+;                |alt_u_div_she:divider|   ; 478 (478)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CONTROLLER|PROMEDIO:U3|lpm_divide:Div0|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider|alt_u_div_she:divider  ; alt_u_div_she   ; work         ;
+;                |lpm_abs_8b9:my_abs_num|  ; 57 (57)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CONTROLLER|PROMEDIO:U3|lpm_divide:Div0|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider|lpm_abs_8b9:my_abs_num ; lpm_abs_8b9     ; work         ;
+;    |TXSERIAL:U2|                         ; 19 (19)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CONTROLLER|TXSERIAL:U2                                                                                              ; TXSERIAL        ; work         ;
+;    |TXSERIAL:U4|                         ; 61 (61)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CONTROLLER|TXSERIAL:U4                                                                                              ; TXSERIAL        ; work         ;
+;    |accel_driver:U1|                     ; 423 (423)           ; 161 (161)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CONTROLLER|accel_driver:U1                                                                                          ; accel_driver    ; work         ;
+;    |spi_master:U0|                       ; 67 (39)             ; 54 (37)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CONTROLLER|spi_master:U0                                                                                            ; spi_master      ; work         ;
+;       |clock_div:U_CLOCK_DIV|            ; 28 (28)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CONTROLLER|spi_master:U0|clock_div:U_CLOCK_DIV                                                                      ; clock_div       ; work         ;
++------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------------------------------+-----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------+
+; State Machine - |CONTROLLER|TXSERIAL:U4|estado                        ;
++--------------+-------------+-------------+--------------+-------------+
+; Name         ; estado.STOP ; estado.SEND ; estado.START ; estado.IDLE ;
++--------------+-------------+-------------+--------------+-------------+
+; estado.IDLE  ; 0           ; 0           ; 0            ; 0           ;
+; estado.START ; 0           ; 0           ; 1            ; 1           ;
+; estado.SEND  ; 0           ; 1           ; 0            ; 1           ;
+; estado.STOP  ; 1           ; 0           ; 0            ; 1           ;
++--------------+-------------+-------------+--------------+-------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------+
+; State Machine - |CONTROLLER|PROMEDIO:U3|estado               ;
++----------------+-------------+----------------+--------------+
+; Name           ; estado.SEND ; estado.RECEIVE ; estado.START ;
++----------------+-------------+----------------+--------------+
+; estado.START   ; 0           ; 0              ; 0            ;
+; estado.RECEIVE ; 0           ; 1              ; 1            ;
+; estado.SEND    ; 1           ; 0              ; 1            ;
++----------------+-------------+----------------+--------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------+
+; State Machine - |CONTROLLER|PROMEDIO:U3|RXSERIAL:U0|estado  ;
++----------------+-------------+----------------+-------------+
+; Name           ; estado.STOP ; estado.RECEIVE ; estado.IDLE ;
++----------------+-------------+----------------+-------------+
+; estado.IDLE    ; 0           ; 0              ; 0           ;
+; estado.RECEIVE ; 0           ; 1              ; 1           ;
+; estado.STOP    ; 1           ; 0              ; 1           ;
++----------------+-------------+----------------+-------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------+
+; State Machine - |CONTROLLER|TXSERIAL:U2|estado                        ;
++--------------+-------------+-------------+--------------+-------------+
+; Name         ; estado.STOP ; estado.SEND ; estado.START ; estado.IDLE ;
++--------------+-------------+-------------+--------------+-------------+
+; estado.IDLE  ; 0           ; 0           ; 0            ; 0           ;
+; estado.START ; 0           ; 0           ; 1            ; 1           ;
+; estado.SEND  ; 0           ; 1           ; 0            ; 1           ;
+; estado.STOP  ; 1           ; 0           ; 0            ; 1           ;
++--------------+-------------+-------------+--------------+-------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |CONTROLLER|accel_driver:U1|STATE                                                                                                         ;
++-------------------+----------------+-------------------+-------------------+--------------+---------------+----------------+--------------+---------------+
+; Name              ; STATE.S_OUTPUT ; STATE.S_CALIBRATE ; STATE.S_READ_WAIT ; STATE.S_READ ; STATE.S_WRITE ; STATE.S_CONFIG ; STATE.S_IDLE ; STATE.S_START ;
++-------------------+----------------+-------------------+-------------------+--------------+---------------+----------------+--------------+---------------+
+; STATE.S_START     ; 0              ; 0                 ; 0                 ; 0            ; 0             ; 0              ; 0            ; 0             ;
+; STATE.S_IDLE      ; 0              ; 0                 ; 0                 ; 0            ; 0             ; 0              ; 1            ; 1             ;
+; STATE.S_CONFIG    ; 0              ; 0                 ; 0                 ; 0            ; 0             ; 1              ; 0            ; 1             ;
+; STATE.S_WRITE     ; 0              ; 0                 ; 0                 ; 0            ; 1             ; 0              ; 0            ; 1             ;
+; STATE.S_READ      ; 0              ; 0                 ; 0                 ; 1            ; 0             ; 0              ; 0            ; 1             ;
+; STATE.S_READ_WAIT ; 0              ; 0                 ; 1                 ; 0            ; 0             ; 0              ; 0            ; 1             ;
+; STATE.S_CALIBRATE ; 0              ; 1                 ; 0                 ; 0            ; 0             ; 0              ; 0            ; 1             ;
+; STATE.S_OUTPUT    ; 1              ; 0                 ; 0                 ; 0            ; 0             ; 0              ; 0            ; 1             ;
++-------------------+----------------+-------------------+-------------------+--------------+---------------+----------------+--------------+---------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                               ;
++---------------------------------------------------+----------------------------------------------+
+; Register name                                     ; Reason for Removal                           ;
++---------------------------------------------------+----------------------------------------------+
+; accel_driver:U1|bytes[3]                          ; Stuck at GND due to stuck port data_in       ;
+; accel_driver:U1|pha                               ; Stuck at VCC due to stuck port data_in       ;
+; accel_driver:U1|pol                               ; Stuck at VCC due to stuck port data_in       ;
+; spi_master:U0|polarity                            ; Stuck at VCC due to stuck port data_in       ;
+; TXSERIAL:U2|cont[31]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[31] ;
+; TXSERIAL:U4|cont[31]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[31] ;
+; cont[31]                                          ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[31] ;
+; TXSERIAL:U2|cont[30]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[30] ;
+; TXSERIAL:U4|cont[30]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[30] ;
+; cont[30]                                          ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[30] ;
+; TXSERIAL:U2|cont[29]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[29] ;
+; TXSERIAL:U4|cont[29]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[29] ;
+; cont[29]                                          ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[29] ;
+; TXSERIAL:U2|cont[28]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[28] ;
+; TXSERIAL:U4|cont[28]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[28] ;
+; cont[28]                                          ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[28] ;
+; TXSERIAL:U2|cont[27]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[27] ;
+; TXSERIAL:U4|cont[27]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[27] ;
+; cont[27]                                          ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[27] ;
+; TXSERIAL:U2|cont[26]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[26] ;
+; TXSERIAL:U4|cont[26]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[26] ;
+; cont[26]                                          ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[26] ;
+; TXSERIAL:U2|cont[25]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[25] ;
+; TXSERIAL:U4|cont[25]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[25] ;
+; cont[25]                                          ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[25] ;
+; TXSERIAL:U2|cont[24]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[24] ;
+; TXSERIAL:U4|cont[24]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[24] ;
+; cont[24]                                          ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[24] ;
+; TXSERIAL:U2|cont[23]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[23] ;
+; TXSERIAL:U4|cont[23]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[23] ;
+; cont[23]                                          ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[23] ;
+; TXSERIAL:U2|cont[22]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[22] ;
+; TXSERIAL:U4|cont[22]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[22] ;
+; cont[22]                                          ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[22] ;
+; TXSERIAL:U2|cont[21]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[21] ;
+; TXSERIAL:U4|cont[21]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[21] ;
+; cont[21]                                          ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[21] ;
+; TXSERIAL:U2|cont[20]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[20] ;
+; TXSERIAL:U4|cont[20]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[20] ;
+; cont[20]                                          ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[20] ;
+; TXSERIAL:U2|cont[19]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[19] ;
+; TXSERIAL:U4|cont[19]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[19] ;
+; cont[19]                                          ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[19] ;
+; TXSERIAL:U2|cont[18]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[18] ;
+; TXSERIAL:U4|cont[18]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[18] ;
+; cont[18]                                          ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[18] ;
+; TXSERIAL:U2|cont[17]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[17] ;
+; TXSERIAL:U4|cont[17]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[17] ;
+; cont[17]                                          ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[17] ;
+; TXSERIAL:U2|cont[16]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[16] ;
+; TXSERIAL:U4|cont[16]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[16] ;
+; cont[16]                                          ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[16] ;
+; TXSERIAL:U2|cont[15]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[15] ;
+; TXSERIAL:U4|cont[15]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[15] ;
+; cont[15]                                          ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[15] ;
+; TXSERIAL:U2|cont[14]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[14] ;
+; TXSERIAL:U4|cont[14]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[14] ;
+; cont[14]                                          ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[14] ;
+; TXSERIAL:U2|cont[13]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[13] ;
+; TXSERIAL:U4|cont[13]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[13] ;
+; cont[13]                                          ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[13] ;
+; TXSERIAL:U2|cont[12]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[12] ;
+; TXSERIAL:U4|cont[12]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[12] ;
+; cont[12]                                          ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[12] ;
+; TXSERIAL:U2|cont[11]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[11] ;
+; TXSERIAL:U4|cont[11]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[11] ;
+; cont[11]                                          ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[11] ;
+; TXSERIAL:U2|cont[10]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[10] ;
+; TXSERIAL:U4|cont[10]                              ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[10] ;
+; cont[10]                                          ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[10] ;
+; TXSERIAL:U2|cont[9]                               ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[9]  ;
+; TXSERIAL:U4|cont[9]                               ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[9]  ;
+; cont[9]                                           ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[9]  ;
+; TXSERIAL:U2|cont[8]                               ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[8]  ;
+; TXSERIAL:U4|cont[8]                               ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[8]  ;
+; cont[8]                                           ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[8]  ;
+; TXSERIAL:U2|cont[7]                               ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[7]  ;
+; TXSERIAL:U4|cont[7]                               ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[7]  ;
+; cont[7]                                           ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[7]  ;
+; TXSERIAL:U2|cont[6]                               ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[6]  ;
+; TXSERIAL:U4|cont[6]                               ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[6]  ;
+; cont[6]                                           ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[6]  ;
+; TXSERIAL:U2|cont[5]                               ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[5]  ;
+; TXSERIAL:U4|cont[5]                               ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[5]  ;
+; cont[5]                                           ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[5]  ;
+; TXSERIAL:U2|cont[4]                               ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[4]  ;
+; TXSERIAL:U4|cont[4]                               ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[4]  ;
+; cont[4]                                           ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[4]  ;
+; TXSERIAL:U2|cont[3]                               ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[3]  ;
+; TXSERIAL:U4|cont[3]                               ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[3]  ;
+; cont[3]                                           ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[3]  ;
+; TXSERIAL:U2|cont[2]                               ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[2]  ;
+; TXSERIAL:U4|cont[2]                               ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[2]  ;
+; cont[2]                                           ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[2]  ;
+; TXSERIAL:U2|cont[1]                               ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[1]  ;
+; TXSERIAL:U4|cont[1]                               ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[1]  ;
+; cont[1]                                           ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[1]  ;
+; TXSERIAL:U2|cont[0]                               ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[0]  ;
+; TXSERIAL:U4|cont[0]                               ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[0]  ;
+; cont[0]                                           ; Merged with PROMEDIO:U3|RXSERIAL:U0|cont[0]  ;
+; accel_driver:U1|bytes[2]                          ; Merged with accel_driver:U1|bytes[0]         ;
+; accel_driver:U1|regAddr[3]                        ; Merged with accel_driver:U1|regAddr[2]       ;
+; accel_driver:U1|reg[3]                            ; Stuck at GND due to stuck port data_in       ;
+; spi_master:U0|state                               ; Merged with spi_master:U0|enable             ;
+; spi_master:U0|clock_div:U_CLOCK_DIV|byte_count[3] ; Stuck at GND due to stuck port data_in       ;
+; spi_master:U0|clock_div:U_CLOCK_DIV|bit_count[3]  ; Stuck at GND due to stuck port data_in       ;
+; TXSERIAL:U4|d_bit[3]                              ; Stuck at GND due to stuck port data_in       ;
+; PROMEDIO:U3|RXSERIAL:U0|d_bit[3]                  ; Stuck at GND due to stuck port data_in       ;
+; TXSERIAL:U2|d_bit[3]                              ; Stuck at GND due to stuck port data_in       ;
+; Total Number of Removed Registers = 109           ;                                              ;
++---------------------------------------------------+----------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                               ;
++--------------------------+---------------------------+----------------------------------------------------+
+; Register name            ; Reason for Removal        ; Registers Removed due to This Register             ;
++--------------------------+---------------------------+----------------------------------------------------+
+; accel_driver:U1|bytes[3] ; Stuck at GND              ; spi_master:U0|clock_div:U_CLOCK_DIV|byte_count[3], ;
+;                          ; due to stuck port data_in ; spi_master:U0|clock_div:U_CLOCK_DIV|bit_count[3]   ;
+; accel_driver:U1|pol      ; Stuck at VCC              ; spi_master:U0|polarity                             ;
+;                          ; due to stuck port data_in ;                                                    ;
++--------------------------+---------------------------+----------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 452   ;
+; Number of registers using Synchronous Clear  ; 36    ;
+; Number of registers using Synchronous Load   ; 15    ;
+; Number of registers using Asynchronous Clear ; 208   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 284   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------+
+; Inverted Register Statistics                               ;
++--------------------------------------------------+---------+
+; Inverted Register                                ; Fan out ;
++--------------------------------------------------+---------+
+; spi_master:U0|mosi                               ; 2       ;
+; sckl_int                                         ; 1       ;
+; spi_master:U0|cs                                 ; 5       ;
+; TXSERIAL:U4|TX                                   ; 1       ;
+; spi_master:U0|bit[1]                             ; 6       ;
+; spi_master:U0|bit[0]                             ; 8       ;
+; spi_master:U0|bit[2]                             ; 4       ;
+; spi_master:U0|last_cs                            ; 2       ;
+; spi_master:U0|clock_div:U_CLOCK_DIV|clock_signal ; 6       ;
+; spi_master:U0|rx_buffer[0]                       ; 2       ;
+; spi_master:U0|rx_buffer[1]                       ; 2       ;
+; spi_master:U0|rx_buffer[2]                       ; 2       ;
+; spi_master:U0|rx_buffer[3]                       ; 2       ;
+; spi_master:U0|rx_buffer[4]                       ; 2       ;
+; spi_master:U0|rx_buffer[5]                       ; 2       ;
+; spi_master:U0|rx_buffer[6]                       ; 2       ;
+; spi_master:U0|rx_buffer[7]                       ; 1       ;
+; TXSERIAL:U2|TX                                   ; 14      ;
+; Total number of inverted registers = 18          ;         ;
++--------------------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+; 5:1                ; 64 bits   ; 192 LEs       ; 64 LEs               ; 128 LEs                ; Yes        ; |CONTROLLER|PROMEDIO:U3|counter[27]          ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |CONTROLLER|accel_driver:U1|txData[7]        ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; Yes        ; |CONTROLLER|accel_driver:U1|txData[5]        ;
+; 7:1                ; 15 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |CONTROLLER|accel_driver:U1|calibData[1][11] ;
+; 7:1                ; 15 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |CONTROLLER|accel_driver:U1|calibData[0][7]  ;
+; 9:1                ; 7 bits    ; 42 LEs        ; 21 LEs               ; 21 LEs                 ; Yes        ; |CONTROLLER|accel_driver:U1|calibData[2][4]  ;
+; 10:1               ; 3 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |CONTROLLER|accel_driver:U1|calibData[2][3]  ;
+; 13:1               ; 5 bits    ; 40 LEs        ; 15 LEs               ; 25 LEs                 ; Yes        ; |CONTROLLER|accel_driver:U1|calibData[2][8]  ;
+; 9:1                ; 4 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |CONTROLLER|accel_driver:U1|regData[4]       ;
+; 12:1               ; 6 bits    ; 48 LEs        ; 36 LEs               ; 12 LEs                 ; Yes        ; |CONTROLLER|accel_driver:U1|byteCount[5]     ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |CONTROLLER|accel_driver:U1|txData           ;
+; 20:1               ; 6 bits    ; 78 LEs        ; 36 LEs               ; 42 LEs                 ; No         ; |CONTROLLER|accel_driver:U1|Selector56       ;
+; 20:1               ; 2 bits    ; 26 LEs        ; 4 LEs                ; 22 LEs                 ; No         ; |CONTROLLER|accel_driver:U1|Selector58       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: spi_master:U0|clock_div:U_CLOCK_DIV ;
++----------------+----------+------------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                 ;
++----------------+----------+------------------------------------------------------+
+; clk_in_freq    ; 50000000 ; Signed Integer                                       ;
+; clk_out_freq   ; 5000000  ; Signed Integer                                       ;
++----------------+----------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: PROMEDIO:U3|lpm_divide:Div0 ;
++------------------------+----------------+------------------------------------+
+; Parameter Name         ; Value          ; Type                               ;
++------------------------+----------------+------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                            ;
+; LPM_WIDTHD             ; 5              ; Untyped                            ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                            ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                            ;
+; LPM_PIPELINE           ; 0              ; Untyped                            ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                            ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                            ;
+; CBXI_PARAMETER         ; lpm_divide_fbo ; Untyped                            ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                            ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                            ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                         ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                       ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                       ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                     ;
++------------------------+----------------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "accel_driver:U1"                                                                                  ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port               ; Type   ; Severity ; Details                                                                             ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
+; accel_data[47..24] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; accel_data[15..0]  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------+
+; Port Connectivity Checks: "spi_master:U0" ;
++------+-------+----------+-----------------+
+; Port ; Type  ; Severity ; Details         ;
++------+-------+----------+-----------------+
+; int1 ; Input ; Info     ; Stuck at GND    ;
+; int2 ; Input ; Info     ; Stuck at GND    ;
++------+-------+----------+-----------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 19                          ;
+; cycloneiii_ff         ; 452                         ;
+;     CLR               ; 53                          ;
+;     CLR SLD           ; 6                           ;
+;     ENA               ; 103                         ;
+;     ENA CLR           ; 140                         ;
+;     ENA CLR SCLR SLD  ; 4                           ;
+;     ENA CLR SLD       ; 5                           ;
+;     ENA SCLR          ; 32                          ;
+;     plain             ; 109                         ;
+; cycloneiii_lcell_comb ; 1410                        ;
+;     arith             ; 523                         ;
+;         2 data inputs ; 329                         ;
+;         3 data inputs ; 194                         ;
+;     normal            ; 887                         ;
+;         0 data inputs ; 29                          ;
+;         1 data inputs ; 40                          ;
+;         2 data inputs ; 252                         ;
+;         3 data inputs ; 115                         ;
+;         4 data inputs ; 451                         ;
+;                       ;                             ;
+; Max LUT depth         ; 85.90                       ;
+; Average LUT depth     ; 28.26                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:18     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Tue Mar 09 10:51:32 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CONTROLLER -c CONTROLLER
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file rxserial.vhd
+    Info (12022): Found design unit 1: RXSERIAL-behavior File: C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/RXSERIAL.vhd Line: 20
+    Info (12023): Found entity 1: RXSERIAL File: C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/RXSERIAL.vhd Line: 10
+Info (12021): Found 2 design units, including 1 entities, in source file txserial.vhd
+    Info (12022): Found design unit 1: TXSERIAL-behavior File: C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/TXSERIAL.vhd Line: 20
+    Info (12023): Found entity 1: TXSERIAL File: C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/TXSERIAL.vhd Line: 10
+Info (12021): Found 3 design units, including 1 entities, in source file spi_master.vhd
+    Info (12022): Found design unit 1: spi_master-FSM_1P File: C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/spi_master.vhd Line: 30
+    Info (12022): Found design unit 2: spi_master-FSM_2P File: C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/spi_master.vhd Line: 235
+    Info (12023): Found entity 1: spi_master File: C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/spi_master.vhd Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file clock_div.vhd
+    Info (12022): Found design unit 1: clock_div-bhv File: C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/clock_div.vhd Line: 24
+    Info (12023): Found entity 1: clock_div File: C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/clock_div.vhd Line: 9
+Info (12021): Found 3 design units, including 1 entities, in source file accel_driver.vhd
+    Info (12022): Found design unit 1: accel_driver-fsm_1p File: C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/accel_driver.vhd Line: 33
+    Info (12022): Found design unit 2: accel_driver-fsm_2p File: C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/accel_driver.vhd Line: 414
+    Info (12023): Found entity 1: accel_driver File: C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/accel_driver.vhd Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file controller.vhd
+    Info (12022): Found design unit 1: CONTROLLER-behavior File: C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/CONTROLLER.vhd Line: 33
+    Info (12023): Found entity 1: CONTROLLER File: C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/CONTROLLER.vhd Line: 10
+Info (12021): Found 2 design units, including 1 entities, in source file output_files/promedio.vhd
+    Info (12022): Found design unit 1: PROMEDIO-behavior File: C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/output_files/PROMEDIO.vhd Line: 21
+    Info (12023): Found entity 1: PROMEDIO File: C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/output_files/PROMEDIO.vhd Line: 11
+Info (12127): Elaborating entity "CONTROLLER" for the top level hierarchy
+Info (12129): Elaborating entity "spi_master" using architecture "A:fsm_1p" for hierarchy "spi_master:U0" File: C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/CONTROLLER.vhd Line: 114
+Info (12128): Elaborating entity "clock_div" for hierarchy "spi_master:U0|clock_div:U_CLOCK_DIV" File: C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/spi_master.vhd Line: 69
+Warning (10492): VHDL Process Statement warning at clock_div.vhd(40): signal "enable" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/clock_div.vhd Line: 40
+Warning (10492): VHDL Process Statement warning at clock_div.vhd(44): signal "polarity" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/clock_div.vhd Line: 44
+Info (12129): Elaborating entity "accel_driver" using architecture "A:fsm_1p" for hierarchy "accel_driver:U1" File: C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/CONTROLLER.vhd Line: 115
+Warning (10036): Verilog HDL or VHDL warning at accel_driver.vhd(46): object "regTest" assigned a value but never read File: C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/accel_driver.vhd Line: 46
+Info (12128): Elaborating entity "TXSERIAL" for hierarchy "TXSERIAL:U2" File: C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/CONTROLLER.vhd Line: 116
+Info (12128): Elaborating entity "PROMEDIO" for hierarchy "PROMEDIO:U3" File: C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/CONTROLLER.vhd Line: 117
+Info (12128): Elaborating entity "RXSERIAL" for hierarchy "PROMEDIO:U3|RXSERIAL:U0" File: C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/output_files/PROMEDIO.vhd Line: 37
+Info (278001): Inferred 1 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "PROMEDIO:U3|Div0" File: C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/output_files/PROMEDIO.vhd Line: 69
+Info (12130): Elaborated megafunction instantiation "PROMEDIO:U3|lpm_divide:Div0" File: C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/output_files/PROMEDIO.vhd Line: 69
+Info (12133): Instantiated megafunction "PROMEDIO:U3|lpm_divide:Div0" with the following parameter: File: C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/output_files/PROMEDIO.vhd Line: 69
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "5"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_fbo.tdf
+    Info (12023): Found entity 1: lpm_divide_fbo File: C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/db/lpm_divide_fbo.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_kbg.tdf
+    Info (12023): Found entity 1: abs_divider_kbg File: C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/db/abs_divider_kbg.tdf Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_she.tdf
+    Info (12023): Found entity 1: alt_u_div_she File: C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/db/alt_u_div_she.tdf Line: 26
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_t3c.tdf
+    Info (12023): Found entity 1: add_sub_t3c File: C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/db/add_sub_t3c.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_u3c.tdf
+    Info (12023): Found entity 1: add_sub_u3c File: C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/db/add_sub_u3c.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_o99.tdf
+    Info (12023): Found entity 1: lpm_abs_o99 File: C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/db/lpm_abs_o99.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_8b9.tdf
+    Info (12023): Found entity 1: lpm_abs_8b9 File: C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/db/lpm_abs_8b9.tdf Line: 24
+Info (13014): Ignored 31 buffer(s)
+    Info (13016): Ignored 31 CARRY_SUM buffer(s)
+Info (13000): Registers with preset signals will power-up high File: C:/Users/diego/Documents/Tecnologico/semestre4/Logica_progra/Evidencia Final Chika Shioriko XVI/spi_master.vhd Line: 13
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 1611 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 5 input pins
+    Info (21059): Implemented 14 output pins
+    Info (21061): Implemented 1592 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 4824 megabytes
+    Info: Processing ended: Tue Mar 09 10:52:34 2021
+    Info: Elapsed time: 00:01:02
+    Info: Total CPU time (on all processors): 00:01:00
+
+

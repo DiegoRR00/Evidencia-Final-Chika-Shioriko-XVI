@@ -1,0 +1,245 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'CLK'
+Slack : -83.495
+TNS   : -1571.520
+
+Type  : Slow 1200mV 85C Model Setup 'PROMEDIO:U3|E'
+Slack : -5.603
+TNS   : -76.192
+
+Type  : Slow 1200mV 85C Model Setup 'clk_2'
+Slack : -5.596
+TNS   : -67.923
+
+Type  : Slow 1200mV 85C Model Setup 'PROMEDIO:U3|RXSERIAL:U0|clk_2'
+Slack : -2.269
+TNS   : -42.480
+
+Type  : Slow 1200mV 85C Model Setup 'TXSERIAL:U2|clk_2'
+Slack : -1.664
+TNS   : -15.067
+
+Type  : Slow 1200mV 85C Model Setup 'TXSERIAL:U4|clk_2'
+Slack : -1.250
+TNS   : -14.082
+
+Type  : Slow 1200mV 85C Model Hold 'TXSERIAL:U2|clk_2'
+Slack : 0.281
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'PROMEDIO:U3|RXSERIAL:U0|clk_2'
+Slack : 0.324
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'TXSERIAL:U4|clk_2'
+Slack : 0.341
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'CLK'
+Slack : 0.347
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'PROMEDIO:U3|E'
+Slack : 0.622
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clk_2'
+Slack : 0.628
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'CLK'
+Slack : -0.891
+TNS   : -12.872
+
+Type  : Slow 1200mV 85C Model Removal 'CLK'
+Slack : 1.309
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLK'
+Slack : -3.000
+TNS   : -465.990
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'PROMEDIO:U3|E'
+Slack : -1.403
+TNS   : -46.299
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk_2'
+Slack : -1.403
+TNS   : -46.299
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'PROMEDIO:U3|RXSERIAL:U0|clk_2'
+Slack : -1.403
+TNS   : -33.672
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'TXSERIAL:U2|clk_2'
+Slack : -1.403
+TNS   : -22.448
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'TXSERIAL:U4|clk_2'
+Slack : -1.403
+TNS   : -22.448
+
+Type  : Slow 1200mV 0C Model Setup 'CLK'
+Slack : -76.042
+TNS   : -1411.031
+
+Type  : Slow 1200mV 0C Model Setup 'PROMEDIO:U3|E'
+Slack : -5.033
+TNS   : -65.702
+
+Type  : Slow 1200mV 0C Model Setup 'clk_2'
+Slack : -5.016
+TNS   : -58.232
+
+Type  : Slow 1200mV 0C Model Setup 'PROMEDIO:U3|RXSERIAL:U0|clk_2'
+Slack : -2.019
+TNS   : -37.578
+
+Type  : Slow 1200mV 0C Model Setup 'TXSERIAL:U2|clk_2'
+Slack : -1.428
+TNS   : -12.503
+
+Type  : Slow 1200mV 0C Model Setup 'TXSERIAL:U4|clk_2'
+Slack : -1.081
+TNS   : -11.565
+
+Type  : Slow 1200mV 0C Model Hold 'TXSERIAL:U2|clk_2'
+Slack : 0.257
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'PROMEDIO:U3|RXSERIAL:U0|clk_2'
+Slack : 0.290
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'TXSERIAL:U4|clk_2'
+Slack : 0.305
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'CLK'
+Slack : 0.311
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'PROMEDIO:U3|E'
+Slack : 0.574
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clk_2'
+Slack : 0.580
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'CLK'
+Slack : -0.743
+TNS   : -10.395
+
+Type  : Slow 1200mV 0C Model Removal 'CLK'
+Slack : 1.199
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLK'
+Slack : -3.000
+TNS   : -465.990
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'PROMEDIO:U3|E'
+Slack : -1.403
+TNS   : -46.299
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk_2'
+Slack : -1.403
+TNS   : -46.299
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'PROMEDIO:U3|RXSERIAL:U0|clk_2'
+Slack : -1.403
+TNS   : -33.672
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'TXSERIAL:U2|clk_2'
+Slack : -1.403
+TNS   : -22.448
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'TXSERIAL:U4|clk_2'
+Slack : -1.403
+TNS   : -22.448
+
+Type  : Fast 1200mV 0C Model Setup 'CLK'
+Slack : -33.220
+TNS   : -470.755
+
+Type  : Fast 1200mV 0C Model Setup 'PROMEDIO:U3|E'
+Slack : -1.715
+TNS   : -13.666
+
+Type  : Fast 1200mV 0C Model Setup 'clk_2'
+Slack : -1.629
+TNS   : -9.066
+
+Type  : Fast 1200mV 0C Model Setup 'PROMEDIO:U3|RXSERIAL:U0|clk_2'
+Slack : -0.560
+TNS   : -8.851
+
+Type  : Fast 1200mV 0C Model Setup 'TXSERIAL:U2|clk_2'
+Slack : -0.102
+TNS   : -0.102
+
+Type  : Fast 1200mV 0C Model Setup 'TXSERIAL:U4|clk_2'
+Slack : 0.064
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'TXSERIAL:U2|clk_2'
+Slack : 0.050
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'PROMEDIO:U3|RXSERIAL:U0|clk_2'
+Slack : 0.141
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'TXSERIAL:U4|clk_2'
+Slack : 0.143
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'CLK'
+Slack : 0.152
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'PROMEDIO:U3|E'
+Slack : 0.238
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clk_2'
+Slack : 0.242
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'CLK'
+Slack : 0.175
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'CLK'
+Slack : 0.572
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLK'
+Slack : -3.000
+TNS   : -344.904
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'PROMEDIO:U3|E'
+Slack : -1.000
+TNS   : -33.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk_2'
+Slack : -1.000
+TNS   : -33.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'PROMEDIO:U3|RXSERIAL:U0|clk_2'
+Slack : -1.000
+TNS   : -24.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'TXSERIAL:U2|clk_2'
+Slack : -1.000
+TNS   : -16.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'TXSERIAL:U4|clk_2'
+Slack : -1.000
+TNS   : -16.000
+
+------------------------------------------------------------
